@@ -6,9 +6,9 @@ int const LINE_NUMBER_WIDTH = 5;
 
 void swap(int *a, int i, int j)
 {
-	int s = a[i];
+	int tmp = a[i];
 	a[i] = a[j];
-	a[j] = s;
+	a[j] = tmp;
 }
 
 bool Permutate(int *a, int n)
@@ -37,30 +37,30 @@ bool Permutate(int *a, int n)
 	return true;
 }
 
-void PrintPermutation(int *a, int n)
+void PrintPermutation(int *t_arr, int t_arrSize)
 {
-	static int num = 0; // номер перестановки
+	static int permutationNumber = 0;
 	cout.width(LINE_NUMBER_WIDTH);
-	cout << ++num << ": ";
-	for (int i = 0; i < n; ++i)
+	cout << ++permutationNumber << ": ";
+	for (int i = 0; i < t_arrSize; ++i)
 	{
-		cout << a[i] << " ";
+		cout << t_arr[i] << " ";
 	}
 	cout << endl;
 }
 
 int main()
 {
-	int n = 0, *a;
+	int arrSize = 0, *arr;
 	cout << "Please, enter arrays size: ";
-	cin >> n;
-	a = new int[n];
-	for (int i = 0; i < n; ++i)
-		a[i] = i + 1;
-	PrintPermutation(a, n);
-	while (Permutate(a, n))
+	cin >> arrSize;
+	arr = new int[arrSize];
+	for (int i = 0; i < arrSize; ++i)
+		arr[i] = i + 1;
+	PrintPermutation(arr, arrSize);
+	while (Permutate(arr, arrSize))
 	{
-		PrintPermutation(a, n);
+		PrintPermutation(arr, arrSize);
 	}
 	cin.get();
 	return 0;
