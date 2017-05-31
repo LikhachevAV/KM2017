@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <time.h> 
 #include <ctime>
 #include <ratio>
@@ -77,8 +78,7 @@ int main()
 		PrintPermutation(arr, arrSize);
 		permutationTime = high_resolution_clock::now();
 		permutationDuration = duration_cast<duration<double>>(permutationTime - satrtTime);
-		cout.precision(2);
-		cout << "\tPermutation took " << permutationDuration.count() << " seconds" << endl << endl;
+		cout << "\tPermutation took " << setprecision(2) << permutationDuration.count() << " seconds" << endl << endl;
 	} while (Permutate(arr, arrSize));
 	cin.get();
 	delete(arr);
